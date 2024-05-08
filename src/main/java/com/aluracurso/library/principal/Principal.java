@@ -6,8 +6,10 @@ import com.aluracurso.library.service.APIRequest;
 import com.aluracurso.library.service.DataConverter;
 
 import java.util.Comparator;
+import java.util.DoubleSummaryStatistics;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Principal {
     private Scanner reading = new Scanner(System.in);
@@ -45,7 +47,15 @@ public class Principal {
                 System.out.println("Libro no encontrado");
             }
 
-
+            //estadisticas
+        DoubleSummaryStatistics sta = data.booksList().stream()
+                .filter(d -> d.download_count() > 0)
+                .collect(Collectors.summarizingDouble(DataBooks::download_count));
+        System.out.println("Cantidad media de descargas: " +sta.getAverage() +
+        " Cantidad máxima de descargas: " + sta.getMax() +
+        " Cantidad mínima de descargas: "+sta.getMin() +
+        " Cantidad de registros evaluados "+sta.getCount()
+        );
 
     }
 }
