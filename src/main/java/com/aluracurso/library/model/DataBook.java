@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record DataBooks(
+public record DataBook(
         String title,
         @JsonAlias("authors") List<DataAuthor>author,
         List<String> languages,
