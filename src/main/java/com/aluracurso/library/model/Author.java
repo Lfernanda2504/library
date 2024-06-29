@@ -22,7 +22,6 @@ public class Author {
     private List<Book> bookList = new ArrayList<>();
 
     public Author(){
-
     }
     public Author(DataAuthor dataAuthor) {
         this.name =  dataAuthor.name();
