@@ -72,12 +72,10 @@ public class Author {
 
     @Override
     public String toString() {
-        return "-------------Autor-----------------" +
-
-                ", Nombre:'" + name + '\n' +
-                ", Fecha de nacimiento:'" + birthDate + '\n' +
-                ", Fecha de fallecimiento:'" + death_year + '\n' +
-                ", Libros:" + bookList +
-                '}';
+        return "-------------Autor-----------------\n" +
+                " Nombre:" + name + '\n' +
+                " Fecha de nacimiento:"  + birthDate + '\n' +
+                " Fecha de fallecimiento: " + death_year + '\n' +
+                "Libros: " + bookList.stream().map(b-> b.getTitle()).toList();
     }
 }

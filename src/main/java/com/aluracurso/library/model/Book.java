@@ -79,6 +79,6 @@ public class Book {
                 "Autor: " + author.getName() + '\n' +
                 "Idioma: " + language + '\n' +
                 "numero de descargas: " + download_count +'\n'+
-                "____________________________________";
+                "_____________________________________";
     }
 }

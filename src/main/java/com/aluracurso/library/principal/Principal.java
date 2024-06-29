@@ -16,6 +16,7 @@ public class Principal {
     private BookRepository repositoryB;
     private AuthorRepository repositoryA;
     private List <Book> books = new ArrayList<>();
+    private List <Author> authors = new ArrayList<>();
     private Optional<Book> searchedBook;
 
 //
@@ -52,7 +53,9 @@ public class Principal {
                 case 3:
                     showBooksSaved();
                     break;
-
+                case 4:
+                    showAuthors();
+                    break;
                 default:
                     System.out.println("Opción invalida");
             }
@@ -142,6 +145,18 @@ public class Principal {
                     .forEach(System.out::println);
         }
     }
+
+    private  void showAuthors(){
+        authors = repositoryA.findAll();
+        if (authors.isEmpty()){
+            System.out.println("No hay autores registrados");
+        }else {
+            authors.stream()
+                    .forEach(System.out::println);
+        }
+
+    }
+
 
 
 }
