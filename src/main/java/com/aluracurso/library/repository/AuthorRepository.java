@@ -3,6 +3,9 @@ package com.aluracurso.library.repository;
 import com.aluracurso.library.model.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface AuthorRepository extends JpaRepository<Author, Long>  {
-    Author findByName(String nombre);
+    Optional<Author> findByName(String name);
+
 }

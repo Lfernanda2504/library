@@ -10,8 +10,9 @@ public class Book {
     private Long id;
     @Column(unique = true)
     private String title;
+    //(nullable): para que no sea nulo
     @ManyToOne
-    @JoinColumn(name = "author_id")
+    @JoinColumn(name = "author_id", nullable = false)
     private Author author;
     private String language;
     private Double download_count;
@@ -27,8 +28,6 @@ public class Book {
         }
         this.download_count = dataBook.download_count();
     }
-
-
 
 
     public Long getId() {

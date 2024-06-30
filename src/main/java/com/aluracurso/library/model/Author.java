@@ -1,6 +1,5 @@
 package com.aluracurso.library.model;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

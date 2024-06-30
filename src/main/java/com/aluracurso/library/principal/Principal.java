@@ -108,15 +108,26 @@ public class Principal {
               .findFirst();
       if (searchedBook.isPresent()){
             foundBook = searchedBook.get();
-            Author author=  new Author( foundBook.author().get(0));
-            if (author.getId() == null ){
-                repositoryA.save(author);
-            }
-            System.out.println("Libro encontrado");
+            DataAuthor dataAuthor = foundBook.author().get(0);
+            String authorName = dataAuthor.name();
+            Optional <Author> isAuthor = repositoryA.findByName(authorName);
+            Author author;
+          if (isAuthor.isPresent()){
+                author = isAuthor.get();
+            }else {
+              author = new Author();
+              author.setName(dataAuthor.name());
+              author.setBirthDate(dataAuthor.birthDate());
+              author.setDeath_year(dataAuthor.death_year());
+              repositoryA.save(author);
+
+          }
             Book book = new Book(foundBook);
             book.setAuthor(author);
-            System.out.println(book.toString());
             repositoryB.save(book);
+            System.out.println("Libro encontrado y registrado");
+            System.out.println(book.toString());
+
       }else {
           System.out.println("Libro no encontrado");
       }
@@ -156,6 +167,8 @@ public class Principal {
         }
 
     }
+
+
 
 
 
