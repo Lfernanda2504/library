@@ -10,7 +10,7 @@
   * 5 - Listar autores vivos de un determinando año
   * 6 - listar libros por idioma
 ---
-### Vista Consola
+### Vista consola
  ![image](https://github.com/Lfernanda2504/library/assets/24297887/c6e57b26-1f76-423e-b256-e96bf50c1ee8)
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/42ffb1bb-5d6a-446a-a634-b5d2161ea1a9)
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/13da0d8a-d018-405c-bc6f-7872b0203092)
