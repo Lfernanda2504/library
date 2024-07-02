@@ -5,6 +5,7 @@ import com.aluracurso.library.repository.AuthorRepository;
 import com.aluracurso.library.repository.BookRepository;
 import com.aluracurso.library.service.APIRequest;
 import com.aluracurso.library.service.DataConverter;
+import org.antlr.v4.runtime.InputMismatchException;
 
 import java.util.*;
 
@@ -19,7 +20,7 @@ public class Principal {
     private List <Author> authors = new ArrayList<>();
     private Optional<Book> searchedBook;
 
-//
+    //
     public  Principal(BookRepository bookRepository, AuthorRepository authorRepository){
         this.repositoryA = authorRepository;
         this.repositoryB = bookRepository;
@@ -55,6 +56,9 @@ public class Principal {
                     break;
                 case 4:
                     showAuthors();
+                    break;
+                case 5:
+                    getAliveAuthors();
                     break;
                 default:
                     System.out.println("Opción invalida");
@@ -98,39 +102,39 @@ public class Principal {
     }
 
 
-  private void searchBookWeb() {
-      System.out.println("Ingrese el titulo del libro que desea buscar");
-      var titleBook = reading.nextLine();
-      Data data = getDataBook(titleBook);
+    private void searchBookWeb() {
+        System.out.println("Ingrese el titulo del libro que desea buscar");
+        var titleBook = reading.nextLine();
+        Data data = getDataBook(titleBook);
         DataBook foundBook = null;
         Optional<DataBook> searchedBook = data.booksList().stream()
-              .filter(b ->b.title().toUpperCase().contains(titleBook.toUpperCase()))
-              .findFirst();
-      if (searchedBook.isPresent()){
+                .filter(b ->b.title().toUpperCase().contains(titleBook.toUpperCase()))
+                .findFirst();
+        if (searchedBook.isPresent()){
             foundBook = searchedBook.get();
             DataAuthor dataAuthor = foundBook.author().get(0);
             String authorName = dataAuthor.name();
             Optional <Author> isAuthor = repositoryA.findByName(authorName);
             Author author;
-          if (isAuthor.isPresent()){
+            if (isAuthor.isPresent()){
                 author = isAuthor.get();
             }else {
-              author = new Author();
-              author.setName(dataAuthor.name());
-              author.setBirthDate(dataAuthor.birthDate());
-              author.setDeath_year(dataAuthor.death_year());
-              repositoryA.save(author);
+                author = new Author();
+                author.setName(dataAuthor.name());
+                author.setBirthDate(dataAuthor.birthDate());
+                author.setDeath_year(dataAuthor.death_year());
+                repositoryA.save(author);
 
-          }
+            }
             Book book = new Book(foundBook);
             book.setAuthor(author);
             repositoryB.save(book);
             System.out.println("Libro encontrado y registrado");
             System.out.println(book.toString());
 
-      }else {
-          System.out.println("Libro no encontrado");
-      }
+        }else {
+            System.out.println("Libro no encontrado");
+        }
 
     }
 
@@ -168,8 +172,22 @@ public class Principal {
 
     }
 
-
-
-
+    private void getAliveAuthors(){
+        System.out.println("Ingrese el año para buscar autores vivos registrados");
+        try {
+            Integer year = reading.nextInt();
+            authors = repositoryA.findAliveAuthors(year);
+            if (authors.isEmpty()) {
+                System.out.println("No hay autores vivos en este año");
+            } else {
+                authors.stream()
+                        .filter(author -> author != null)
+                        .forEach(System.out::println);
+            }
+        }catch (InputMismatchException e){
+            System.out.println("Ingrese un año correcto ");
+            reading.nextLine();
+        }
+    }
 
 }
