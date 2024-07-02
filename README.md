@@ -18,7 +18,7 @@
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/8d88e106-a27f-440b-9aef-acb5768365d6)
 <hr/>
 
-
+---
 # 💻 Requisitos
 Para este proyecto se utilizaron las siguientes tecnologías:
 
@@ -33,9 +33,10 @@ Para este proyecto se utilizaron las siguientes tecnologías:
 *  Postgres Driver: para la conexión con la base de datos PostgreSQL.
 *  Jackson: para el manejo de JSON.
   <hr/>
-   ## Uso
+---
+   ### Uso
    * Ejecutar el programa LibraryApplication.java.
-  * Realizar configuración de base de datos
+   * Realizar configuración de base de datos
   <hr/>
 ⭐️ From [Lfernanda2504](https://github.com/Lfernanda2504)
 <img src="https://user-images.githubusercontent.com/5679180/79618120-0daffb80-80be-11ea-819e-d2b0fa904d07.gif" width="50px">
