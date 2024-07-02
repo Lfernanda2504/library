@@ -1,6 +1,6 @@
 
 ---
-## Proyecto Library <img align="center" 
+## Proyecto Library 
 ---
 
 ## Acerca de
