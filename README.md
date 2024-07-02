@@ -11,13 +11,13 @@
   * 6 - listar libros por idioma
 ---
 ### Vista consola
-
+___
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/c6e57b26-1f76-423e-b256-e96bf50c1ee8)
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/42ffb1bb-5d6a-446a-a634-b5d2161ea1a9)
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/13da0d8a-d018-405c-bc6f-7872b0203092)
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/59410a39-cfcb-47ff-a4d1-5c9d6383b47a)
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/8d88e106-a27f-440b-9aef-acb5768365d6)
-<hr/>
+
 
 ---
 # 💻 Requisitos
