@@ -17,6 +17,10 @@
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/13da0d8a-d018-405c-bc6f-7872b0203092)
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/59410a39-cfcb-47ff-a4d1-5c9d6383b47a)
 ![image](https://github.com/Lfernanda2504/library/assets/24297887/8d88e106-a27f-440b-9aef-acb5768365d6)
+![image](https://github.com/Lfernanda2504/library/assets/24297887/515690ab-4343-4d05-94f8-48339b557bee)
+![image](https://github.com/Lfernanda2504/library/assets/24297887/768957ce-0dcf-41fb-bcc2-209f1954a9cf)
+
+
 
 ---
 # 💻 Requisitos
