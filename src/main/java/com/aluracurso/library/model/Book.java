@@ -14,18 +14,17 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
-    private String language;
+
+    @Enumerated(EnumType.STRING)
+    private Language language;
     private Double download_count;
 
     public Book(){}
+
     public Book(DataBook dataBook) {
         this.title = dataBook.title();
         this.author = new Author(dataBook.author().get(0));
-        try {
-            this.language = String.valueOf(dataBook.languages());
-        }catch (NullPointerException e){
-            this.language = "N/A";
-        }
+        this.language = Language.fromString(dataBook.languages().toString().split(",")[0].trim());
         this.download_count = dataBook.download_count();
     }
 
@@ -48,18 +47,18 @@ public class Book {
 
 
     public Author getAuthor() {
-     return author;
- }
+        return author;
+    }
 
     public void setAuthor(Author author) {
         this.author = author;
     }
 
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 
