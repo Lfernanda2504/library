@@ -33,7 +33,7 @@ public class Principal {
                      -------------------------------------------
                          Bienvenido a Literalura
                      -------------------------------------------
-                    1 -Buscar libro por titulo en la API
+                    1 - Buscar libro por titulo en la API
                     2 - Buscar libro por titulo registrado
                     3 - Listar libros registrados
                     4 - Listar autores registrado
@@ -42,6 +42,10 @@ public class Principal {
                     0 - Salir
                     """;
             System.out.println(menu);
+            while (!reading.hasNextInt()){
+                System.out.println("Formato invalido, ingrese una opción del menu");
+                reading.nextLine();
+            }
             option = reading.nextInt();
             reading.nextLine();
             switch (option){
@@ -59,6 +63,9 @@ public class Principal {
                     break;
                 case 5:
                     getAliveAuthors();
+                    break;
+                case 6:
+                    showBookByLanguage();
                     break;
                 default:
                     System.out.println("Opción invalida");
@@ -189,5 +196,64 @@ public class Principal {
             reading.nextLine();
         }
     }
+    private List <Book>searchedBooksBylanguage (String language){
+        var data = Language.fromString(language);
+        System.out.println("Lenguaje buscado: "+ data);
+
+        List <Book> booksByLanguage = repositoryB.findByLanguage(data);
+        return booksByLanguage;
+
+    }
+
+    private void showBookByLanguage(){
+        System.out.println("Selecciona el lenguaje a buscar: ");
+
+        var option = -1;
+        while (option !=0){
+            var othersoptions ="""
+                     -------------------------------------------
+                         Otras Opciones de Literalura
+                     -------------------------------------------
+                    1 - Inglés(en)
+                    2 - Español(es) 
+                    3 - Francés (fr)
+                    4 - Portugués
+                    0 - Salir
+                    """;
+            System.out.println(othersoptions);
+            while (!reading.hasNextInt()){
+                System.out.println("Formato invalido, ingrese un numero");
+                reading.nextLine();
+            }
+            option = reading.nextInt();
+            reading.nextLine();
+
+           switch (option){
+               case 1:
+                   List<Book> booksEn= searchedBooksBylanguage("[en]");
+                   booksEn.forEach(System.out::println);
+                   break;
+               case 2:
+                   List<Book> booksEs= searchedBooksBylanguage("[es]");
+                   booksEs.forEach(System.out::println);
+                   break;
+               case 3:
+                   List<Book> booksFr= searchedBooksBylanguage("[fr]");
+                   booksFr.forEach(System.out::println);
+                   break;
+               case 4:
+                   List<Book> booksPt= searchedBooksBylanguage("[pt]");
+                   booksPt.forEach(System.out::println);
+                   break;
+               case 0:
+                   return;
+               default:
+                   System.out.println("ningun lenguaje seleccionado");
+           }
+
+        }
+    }
+
+
 
 }
